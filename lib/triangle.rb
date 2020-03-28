@@ -8,7 +8,7 @@ class Triangle
   end
 
   def kind
-    if self.side1 == 0 || self.side2 == 0 || self.side3 == 0
+    if self.side1 <= 0 || self.side2 <= 0 || self.side3 <= 0 || 
       raise TriangleError
     elsif self.side1 == self.side2 && self.side2 == self.side3
       :equilateral
@@ -20,6 +20,9 @@ class Triangle
   end
 
   class TriangleError < StandardError
+    def message
+      "not a triangle"
+    end
   end
 
 end
