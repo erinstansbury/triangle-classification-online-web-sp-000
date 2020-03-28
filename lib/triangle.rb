@@ -6,7 +6,15 @@ class Triangle
     @side2 = side2
     @side3 = side3
   end
-  
+
+  def kind
+    if self.side1 == 0 || self.side2 == 0 || self.side3 == 0
+      raise TriangleError
+    elsif self.side1 == self.side2 && self.side2 == self.side3
+      puts "equilateral"
+    end
+  end
+
   class TriangleError < StandardError
   end
 
